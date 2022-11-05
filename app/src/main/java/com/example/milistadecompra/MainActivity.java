@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mCantidadEdit;
     private EditText mPrecioEdit;
     private Button mAddButton;
+    private TextView resumenCompra;
     private ArrayAdapter<String> mAdapter;
 
     @Override
