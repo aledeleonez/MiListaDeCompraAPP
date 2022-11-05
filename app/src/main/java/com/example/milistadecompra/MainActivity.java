@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mAddButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String producto = mProductoEdit.getText().toString() + mCantidadEdit.getText().toString() + mPrecioEdit.getText().toString();
+                String producto = mProductoEdit.getText().toString() + "(" + mCantidadEdit.getText().toString() + ") = " + mPrecioEdit.getText().toString() + "€";
                 mAdapter.add(producto);
                 mAdapter.notifyDataSetChanged();
                 mProductoEdit.setText("");
