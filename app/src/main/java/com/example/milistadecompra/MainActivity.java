@@ -17,8 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText mCantidadEdit;
     private EditText mPrecioEdit;
     private Button mAddButton;
-    private TextView resumenCompra;
+    private TextView mResumenCompra;
     private ArrayAdapter<String> mAdapter;
+    private float res = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         mCantidadEdit = (EditText) findViewById(R.id.cantidad_editText);
         mPrecioEdit = (EditText) findViewById(R.id.precio_editText);
         mAddButton = (Button) findViewById(R.id.add_button);
+        mResumenCompra = (TextView) findViewById(R.id.resumenCompra_title);
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         mShoppingList.setAdapter(mAdapter);
         mAddButton.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +40,10 @@ public class MainActivity extends AppCompatActivity {
                 mAdapter.add(producto);
                 mAdapter.notifyDataSetChanged();
                 mProductoEdit.setText("");
+                res += Float.parseFloat(mPrecioEdit.getText().toString());
+                mResumenCompra.setText("Lista de la compra: "+ mAdapter.getCount() + " productos= " + res + "€");
             }
         });
+
     }
 }
